@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ucenter.css' %}">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1222632_pwjgc75dk8.css">
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="main_header">
+        <div class="main_header_left">
+            <ul>
+                <li><a href="http://127.0.0.1:8000/">房源</a></li>
+                <li><a href="http://127.0.0.1:8000/page/plot.html/">小区</a></li>
+                <li><a href="javascript:" onclick="login_first('http://127.0.0.1:8000/page/publish.html/')">我要卖房</a></li>
+            </ul>
+        </div>
+        <div class="main_header_right">
+            <ul>
+                <li><a href="javascript:" onclick="showlog()">登录</a></li>
+                <li><a href="javascript:" onclick="showreg()">注册</a></li>
+                <li class="hide"><a href="javascript:" onclick="login_first('http://127.0.0.1:8000/page/ucenter.html/')">{{request.session.user}}</a></li>
+                <li class="hide"><a href="javascript:" onclick="logout();">退出</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="main_body">
+        <div class="content">
+            <div class="sale_left">
+                <div id="title" class="long_title"></div>
+                <div class="clearfix">
+                    <div class="info_tag total_price">
+                        <em id="total_price"></em>万
+                    </div>
+                    <div class="info_tag">
+                        <em id="bedroom0"></em>室
+                        <em id="bedroom1"></em>厅
+                    </div>
+                    <div class="info_tag">
+                        <em id="area1"></em>平方米
+                    </div>
+                </div>
+                <div class="switch_warpper">
+                    <div id="pre_img" class="switch_img">
+                        <div class="iconfont icon-houtuishangyige" style="font-size: 100px"></div>
+                    </div>
+                    <img id="imgs" src="https://pages.anjukestatic.com/usersite/site/img/global/defaultImg/list-deft-img2.png" alt="" width="600" height="450">
+                    <div id="next_img" class="switch_img">
+                        <div class="iconfont icon-qianjinxiayige" style="font-size: 100px"></div>
+                    </div>
+                    <ul class="islider">
+                        <li class="iconfont icon-danxuanxuanzhong"></li>
+                    </ul>
+                </div>
+                <div class="house_info_box">
+                    <h4 class="house_info_title">房屋信息
+                        <span>发布时间：<em id="add_date"></em></span>
+                        <span>房屋编码：<em id="house_code"></em></span>
+                    </h4>
+                    <div class="house_info_wrap">
+                        <ul class="houseInfo-detail-list">
+                            <li class="houseInfo-detail-item">
+                                <div class="houseInfo-label">所属小区：</div>
+                                <div id="plot1" class="houseInfo-content"></div>
+                            </li>
+                            <li class="houseInfo-detail-item">
+                                <div class="houseInfo-label">房屋户型：</div>
+                                <div class="houseInfo-content">
+                                    <em id="type0"></em>
+                                    <em id="type1"></em>
+                                    <em id="type2"></em>
+                                </div>
+                            </li>
+                            <li class="houseInfo-detail-item">
+                                <div class="houseInfo-label">房屋单价：</div>
+                                <div class="houseInfo-content"><em id="unit_price"></em>元/m²</div>
+                            </li>
+                            <li class="houseInfo-detail-item">
+                                <div class="houseInfo-label">所在位置：</div>
+                                <div class="houseInfo-content"><em id="pos0"></em> - <em id="pos1"></em> - <em id="pos2"></em></div>
+                            </li>
+                            <li class="houseInfo-detail-item">
+                                <div class="houseInfo-label">建筑面积：</div>
+                                <div class="houseInfo-content"><em id="area2"></em>平方米</div>
+                            </li>
+                            <li class="houseInfo-detail-item">
+                                <div class="houseInfo-label">参考首付：</div>
+                                <div id="down_payment" class="houseInfo-content"></div>
+                            </li>
+                            <li class="houseInfo-detail-item">
+                                <div class="houseInfo-label">建造年代：</div>
+                                <div id="year" class="houseInfo-content"></div>
+                            </li>
+                            <li class="houseInfo-detail-item">
+                                <div class="houseInfo-label">房屋朝向：</div>
+                                <div id='direction' class="houseInfo-content"></div>
+                            </li>
+<!--                            <li class="houseInfo-detail-item">-->
+<!--                                <div class="houseInfo-label">参考月供：</div>-->
+<!--                                <div class="houseInfo-content">1234元</div>-->
+<!--                            </li>-->
+                            <li class="houseInfo-detail-item">
+                                <div class="houseInfo-label">房屋类型：</div>
+                                <div id="house_type" class="houseInfo-content"></div>
+                            </li>
+                            <li class="houseInfo-detail-item">
+                                <div class="houseInfo-label">所在楼层：</div>
+                                <div id="floor" class="houseInfo-content"></div>
+                            </li>
+                            <li class="houseInfo-detail-item">
+                                <div class="houseInfo-label">装修程度：</div>
+                                <div id="decoration" class="houseInfo-content"></div>
+                            </li>
+                            <li class="houseInfo-detail-item">
+                                <div class="houseInfo-label">产权年限：</div>
+                                <div id="property_year" class="houseInfo-content"></div>
+                            </li>
+                            <li class="houseInfo-detail-item">
+                                <div class="houseInfo-label">配套电梯：</div>
+                                <div id="elevator" class="houseInfo-content"></div>
+                            </li>
+                            <li class="houseInfo-detail-item">
+                                <div class="houseInfo-label">房本年限：</div>
+                                <div id="house_year" class="houseInfo-content"></div>
+                            </li>
+                            <li class="houseInfo-detail-item">
+                                <div class="houseInfo-label">产权性质：</div>
+                                <div id="property" class="houseInfo-content"></div>
+                            </li>
+                            <li class="houseInfo-detail-item">
+                                <div class="houseInfo-label">配套供暖：</div>
+                                <div id="heating" class="houseInfo-content"></div>
+                            </li>
+                            <li class="houseInfo-detail-item">
+                                <div class="houseInfo-label">唯一住房：</div>
+                                <div id="only" class="houseInfo-content"></div>
+                            </li>
+                            <li class="houseInfo-detail-item">
+                                <div class="houseInfo-label">一手房源：</div>
+                                <div id="one_hand" class="houseInfo-content"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="houseInfo_item">
+                        <h5 class="title-content">核心卖点</h5>
+                        <div id="core_point" class="houseInfo-item-desc"></div>
+                        <h5 class="title-content">业主心态</h5>
+                        <div id="owner_men" class="houseInfo-item-desc"></div>
+                        <h5 class="title-content">服务介绍</h5>
+                        <div id="service_introduction" class="houseInfo-item-desc"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sale_right">
+                <div class="user_img">
+                    <img style="border-radius: 90px" width="180" height="180" src="https://tse1-mm.cn.bing.net/th/id/OIP.2sw8EVMI5ZGik5P-Pd0XdQHaHq?pid=Api&rs=1" alt="">
+                </div>
+                <div class="userinfo">
+                    <div class="item" id="realname">于晓波</div>
+                    <div class="item littleitem" id="gender">男</div>
+                    <div class="item littleitem" id="age">29</div>
+                    <div class="item" id="tel">4000355079 转 0035</div>
+                    <div class="item" id="self_introduction">提前预约随时可看</div>
+                </div>
+                <hr>
+                <div id="deal_data_box" style="width:100%; height: 350px; margin-top: 5px"></div>
+            </div>
+        </div>
+    </div>
+    <div class="main_footer"></div>
+    <div id="login-page" class="login-page hide">
+        <div class="login-title">
+            <div class="login-tab select">登&nbsp&nbsp录</div>
+            <div class="login-tab" onclick="showreg();">注&nbsp&nbsp册</div>
+        </div>
+        <div class="login-register">
+            <div class="login-form">
+                <div class="msg-wrap" id="login-msg"></div>
+                <div class="form">
+                    <form action="javascript:" id="formlogin" method="post" onSubmit="return false;">
+<!--                            用户名-->
+                        <div class="item">
+                            <label for="username">
+                                <div class="input-icon iconfont icon-yonghu"></div>
+                            </label>
+                            <input type="text" name="username" id="username" class="itxt" tabindex="1" autocomplete="off" placeholder="用户名/手机号">
+                        </div>
+<!--                            密码-->
+                        <div id="pwd" class="item" style="visibility: visible">
+                            <label for="nloginpwd">
+                                <div class="input-icon iconfont icon-tubiaozhizuomobanyihuifu-"></div>
+                            </label>
+                            <input type="password" name="password" id="nloginpwd" class="itxt" tabindex="2" autocomplete="off" placeholder="密码">
+                        </div>
+<!--                            验证码-->
+                        <div id="o-authcode" class="item hide">
+                            <label for="authcode">
+                                <div class="input-icon iconfont icon-ecurityCode"></div>
+                            </label>
+                            <input type="text" id="authcode" class="itxt02" name="authcode" tabindex="3" placeholder="请输入验证码">
+                            <input type="text" id="code"  class="verify-code" onclick="createCode()" readonly  unselectable="on">
+                        </div>
+<!--                            登录按钮-->
+                        <div class="item">
+                            <div class="login-btn" id="loginsubmit" onClick="validate();">
+                                登&nbsp;&nbsp;&nbsp;&nbsp;录
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="allb" class="hide" onclick="hidelog()"></div>
+</body>
+<script src="{% static 'js/jquery-3.3.1.js' %}"></script>
+<script src="{% static 'js/echarts.min.js' %}"></script>
+<script src="{% static 'js/some_fuc.js' %}"></script>
+<script>
+    let id = getUrlParam('id');
+    $.ajax({
+        url: 'http://127.0.0.1:8000/gethousebyid/'+id+'/',
+        type: 'get',
+        data: null,
+        dataType: 'json',
+        success: function (res) {
+            $.ajax({
+                url: 'http://127.0.0.1:8000/user/userinfo/'+res['the_host']+'/',
+                type: 'get',
+                data: null,
+                dataType: 'json',
+                success: function (res) {
+                    for (var item in res) {
+                        if (res[item]) {
+                            $(`#${item}`).text(res[item]);
+                            $(`#edit_${item}`).val(res[item]);
+                        }
+                    }
+                }
+            });
+            $('title').text(res.title);
+            for (var item in res) {
+                if ($(`#${item}`)) {
+                    $(`#${item}`).text(res[item]);
+                }
+            }
+            $('#bedroom0').text(res.bedroom[0]);
+            $('#bedroom1').text(res.bedroom[1]);
+            $('#area1, #area2').text(res.area);
+            $('#type0').text(res.type[0]);
+            $('#type1').text(res.type[1]);
+            $('#type2').text(res.type[2]);
+            $('#pos0').text(res.position[0]);
+            $('#pos1').text(res.position[1]);
+            $('#pos2').text(res.position[2]);
+            $('#plot1').append(`<a href="http://127.0.0.1:8000/page/plothouses.html/?plot=${res.plot}">${res.plot}</a>`);
+            for (let i = 1; i < res.imgs.length; i++) {
+                $('.islider').append('<li class="iconfont icon-danxuan_weixuanzhong"></li>');
+            }
+            $('#imgs').attr('src', res.imgs[0]);
+            // 图片翻页
+            $('#pre_img').on('click', function () {
+                let index = $.inArray($('#imgs')[0].src, res.imgs);
+                $('#imgs').attr('src', res.imgs[index-1]);
+                if (index != 0) {
+                    $('li.iconfont.icon-danxuanxuanzhong').attr('class','iconfont icon-danxuan_weixuanzhong');
+                    $('li.iconfont.icon-danxuan_weixuanzhong').eq(index-1).attr('class','iconfont icon-danxuanxuanzhong');
+                }
+            });
+            $('#next_img').on('click', function () {
+                let index = $.inArray($('#imgs')[0].src, res.imgs);
+                $('#imgs').attr('src', res.imgs[index+1]);
+                if (index != res.imgs.length-1) {
+                    $('li.iconfont.icon-danxuanxuanzhong').attr('class','iconfont icon-danxuan_weixuanzhong');
+                    $('li.iconfont.icon-danxuan_weixuanzhong').eq(index+1).attr('class','iconfont icon-danxuanxuanzhong');
+                }
+            });
+            $('.islider li').on('click', function () {
+                $('#imgs').attr('src', res.imgs[$('.islider li').index($(this))]);
+                $('li.iconfont.icon-danxuanxuanzhong').attr('class','iconfont icon-danxuan_weixuanzhong');
+                $(this).attr('class','iconfont icon-danxuanxuanzhong');
+            });
+            var myChart = echarts.init(document.getElementById('deal_data_box'));
+            var option = {
+                title: {
+                    text: '价格趋势图（元/m²）'
+                },
+                tooltip: {},
+                legend: {
+                    data:['价格']
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['1月', '2月', '3月', '4月', '5月']
+                },
+                yAxis: {
+                    type: 'value',
+                    min:function (value) {
+                       return value.min-50;
+                    },
+                    nameTextStyle:{
+                        fontSize:15
+                    }
+
+                },
+                series: [{
+                    color: ['#3591d5'],
+                    data: [res.unit_price-193, res.unit_price-203, res.unit_price-196, res.unit_price-222, res.unit_price],
+
+                    type: 'line',
+                    markPoint:{
+                        data:[
+                            {type: 'max', name: '最大值'},
+                            {type: 'min', name: '最小值'}
+                        ]
+                    },
+                    markLine: {
+                       data: [
+                            {type: 'average', name: '平均值'}
+                        ]
+                     }
+
+                }]
+            };
+            myChart.setOption(option);
+            }
+    })
+</script>
+</html>

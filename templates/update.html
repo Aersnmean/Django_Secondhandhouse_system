@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>修改二手房信息</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/publish.css' %}">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1222632_symce7ofddh.css">
+</head>
+<body>
+    <div class="main_header">
+        <div class="main_header_left">
+            <ul>
+                <li><a href="http://127.0.0.1:8000/">房源</a></li>
+                <li><a href="http://127.0.0.1:8000/page/plot.html/">小区</a></li>
+                <li><a href="javascript:" onclick="login_first('http://127.0.0.1:8000/page/publish.html/')">我要卖房</a></li>
+            </ul>
+        </div>
+        <div class="main_header_right">
+            <ul>
+                <li><a href="javascript:" onclick="showlog()">登录</a></li>
+                <li><a href="javascript:" onclick="showreg()">注册</a></li>
+                <li class="hide"><a href="javascript:" onclick="login_first('http://127.0.0.1:8000/page/ucenter.html/')">{{request.session.user}}</a></li>
+                <li class="hide"><a href="javascript:" onclick="logout();">退出</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="main_body">
+        <div class="content">
+            <div class="main_title">--- 修改二手房信息 ---</div>
+            <form action="" method="post" class="main_form" id="main_form" enctype="multipart/form-data">
+                <div class="item">
+                    <input type="text" id="house_code" name="house_code" class="short-input" placeholder="房屋编码" required>
+                    <label class="title" for="house_code">房屋编码</label>
+                </div>
+                <div class="item">
+                    <input type="text" id="title" name="title" class="short-input" placeholder="主页标题">
+                    <label class="title" for="title">主页标题</label>
+                </div>
+                <div class="item">
+                    <input type="text" id="total_price" name="total_price" class="short-input" placeholder="总价格">
+                    <label class="title" for="total_price">总价格</label>
+                </div>
+                <div class="item">
+                    <input type="text" id="area" name="area" class="short-input" placeholder="建筑面积(m²)">
+                    <label class="title" for="area">建筑面积(m²)</label>
+                </div>
+                <div class="item">
+                    <input type="text" id="year" name="year" class="short-input" placeholder="建造年份">
+                    <label class="title" for="year">建造年份</label>
+                </div>
+                <div class="item">
+                    <input type="text" id="property_year" name="property_year" class="short-input" placeholder="产权年限">
+                    <label class="title" for="property_year">产权年限</label>
+                </div>
+                <div class="item">
+                    <input type="text" id="type1" name="type1" class="short-input" placeholder="室">
+                    <label class="title" for="type1">室</label>
+                </div>
+                <div class="item">
+                    <input type="text" id="type2" name="type2" class="short-input" placeholder="厅">
+                    <label class="title" for="type2">厅</label>
+                </div>
+                <div class="item">
+                    <input type="text" id="type3" name="type3" class="short-input" placeholder="卫">
+                    <label class="title" for="type3">卫</label>
+                </div>
+                <div class="item">
+                    <input type="text" id="position1" name="position1" class="short-input" placeholder="区/县">
+                    <label class="title" for="position1">区/县</label>
+                </div>
+                <div class="item">
+                    <input type="text" id="position2" name="position2" class="short-input" placeholder="乡/镇">
+                    <label class="title" for="position2">乡/镇</label>
+                </div>
+                <div class="item">
+                    <input type="text" id="position3" name="position3" class="short-input" placeholder="街道/村委会">
+                    <label class="title" for="position3">街道/村委会</label>
+                </div>
+                <div class="item">
+                    <input type="text" id="plot" name="plot" class="short-input" placeholder="所属小区">
+                    <label class="title" for="plot">所属小区</label>
+                </div>
+                <div class="item">
+                    <input type="text" id="direction" name="direction" class="short-input" placeholder="房屋朝向">
+                    <label class="title" for="direction">房屋朝向</label>
+                </div>
+                <div class="item">
+                    <input type="text" id="house_type" name="house_type" class="short-input" placeholder="房屋类型">
+                    <label class="title" for="house_type">房屋类型</label>
+                </div>
+                <div class="item">
+                    <input type="text" id="floor" name="floor" class="short-input" placeholder="所在楼层">
+                    <label class="title" for="floor">所在楼层</label>
+                </div>
+                <div class="item">
+                    <input type="text" id="decoration" name="decoration" class="short-input" placeholder="装修程度">
+                    <label class="title" for="decoration">装修程度</label>
+                </div>
+                <div class="item">
+                    <input type="text" id="house_year" name="house_year" class="short-input" placeholder="房本年限">
+                    <label class="title" for="house_year">房本年限</label>
+                </div>
+                <div class="item">
+                    <input type="text" id="elevator" name="elevator" class="short-input" placeholder="配套电梯">
+                    <label class="title" for="elevator">配套电梯</label>
+                </div>
+                <div class="item">
+                    <input type="text" id="property" name="property" class="short-input" placeholder="产权性质">
+                    <label class="title" for="property">产权性质</label>
+                </div>
+                <div class="item">
+                    <input type="text" id="heating" name="heating" class="short-input" placeholder="配套供暖">
+                    <label class="title" for="heating">配套供暖</label>
+                </div>
+                <div class="item">
+                    <input type="text" id="only" name="only" class="short-input" placeholder="唯一住房">
+                    <label class="title" for="only">唯一住房</label>
+                </div>
+                <div class="item">
+                    <input type="text" id="one_hand" name="one_hand" class="short-input" placeholder="一手房源">
+                    <label class="title" for="one_hand">一手房源</label>
+                </div>
+                <div class="item">
+                    <input type="file" id="" name="imgs" multiple accept="image/jpeg, image/png">
+                    <label class="title" for="">图片上传</label>
+                </div>
+                <div class="item bigarea">
+                    <textarea type="text" id="core_point" name="core_point" class="long-input" placeholder="核心卖点"></textarea>
+                    <label class="title" for="core_point">核心卖点</label>
+                </div>
+                <div class="item bigarea">
+                    <textarea type="text" id="owner_men" name="owner_men" class="long-input" placeholder="业主心态"></textarea>
+                    <label class="title" for="owner_men">业主心态</label>
+                </div>
+                <div class="item bigarea">
+                    <textarea type="text" id="service_introduction" name="service_introduction" class="long-input" placeholder="服务介绍"></textarea>
+                    <label class="title" for="service_introduction">服务介绍</label>
+                </div>
+                <div class="item bigarea">
+                    <input type="button" id="submit_btn" value="提          交" ng-disabled="main_form.house_code.$error.required">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="main_footer"></div>
+    <div id="login-page" class="login-page hide">
+        <div class="login-title">
+            <div class="login-tab select">登&nbsp&nbsp录</div>
+            <div class="login-tab" onclick="showreg();">注&nbsp&nbsp册</div>
+        </div>
+        <div class="login-register">
+            <div class="login-form">
+                <div class="msg-wrap" id="login-msg"></div>
+                <div class="form">
+                    <form action="javascript:" id="formlogin" method="post" onSubmit="return false;">
+<!--                            用户名-->
+                        <div class="item">
+                            <label for="username">
+                                <div class="input-icon iconfont icon-yonghu"></div>
+                            </label>
+                            <input type="text" name="username" id="username" class="itxt" tabindex="1" autocomplete="off" placeholder="用户名/手机号">
+                        </div>
+<!--                            密码-->
+                        <div id="pwd" class="item" style="visibility: visible">
+                            <label for="nloginpwd">
+                                <div class="input-icon iconfont icon-tubiaozhizuomobanyihuifu-"></div>
+                            </label>
+                            <input type="password" name="password" id="nloginpwd" class="itxt" tabindex="2" autocomplete="off" placeholder="密码">
+                        </div>
+<!--                            验证码-->
+                        <div id="o-authcode" class="item hide">
+                            <label for="authcode">
+                                <div class="input-icon iconfont icon-ecurityCode"></div>
+                            </label>
+                            <input type="text" id="authcode" class="itxt02" name="authcode" tabindex="3" placeholder="请输入验证码">
+                            <input type="text" id="code"  class="verify-code" onclick="createCode()" readonly  unselectable="on">
+                        </div>
+<!--                            登录按钮-->
+                        <div class="item">
+                            <div class="login-btn" id="loginsubmit" onClick="validate();">
+                                登&nbsp;&nbsp;&nbsp;&nbsp;录
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="allb" class="hide" onclick="hidelog()"></div>
+    <div class="hide" id="imgs_url"></div>
+</body>
+<script src="{% static 'js/jquery-3.3.1.js' %}"></script>
+<script src="{% static 'js/some_fuc.js' %}"></script>
+<script src="{% static 'js/checkcode.js' %}"></script>
+<script>
+    is_login();
+    login_backhome();
+    let id = getUrlParam('id');
+    $.ajax({
+        url: 'http://127.0.0.1:8000/gethousebyid/'+id+'/',
+        type: 'get',
+        data: null,
+        dataType: 'json',
+        success: function (res) {
+            for (let item in res) {
+                if ($(`#${item}`)) {
+                    $(`#${item}`).val(res[item]);
+                }
+                $('#type1').val(res.type[0].replace('室', ''));
+                $('#type2').val(res.type[1].replace('厅', ''));
+                $('#type3').val(res.type[2].replace('卫', ''));
+                $('#position1').val(res.position[0]);
+                $('#position2').val(res.position[1]);
+                $('#position3').val(res.position[2]);
+            }
+            $('#house_code').attr('disabled', 'disabled')
+        }
+    });
+    $('#submit_btn').on('click', function () {
+        $('.short-input, .long-input').map(function () {
+            if ($(this).val() == '') {
+                $(this).addClass('input_error');
+            }
+        });
+        if ($('.input_error').length == 0) {
+            let data = $("#main_form").serializeArray();
+            let datas = {};
+            for(let i = 0; i < data.length; i++){
+                datas[data[i].name] = data[i].value;
+            }
+            // datas['imgs'] = $("#imgs_url").text();
+            // datas['type'] = [$('#type1').val(),$('#type2').val(),$('#type3').val()];
+            // datas['position'] = [$('#position1').val(),$('#position2').val(),$('#position3').val()];
+            console.log(datas);
+            $.ajax({
+                url: 'http://127.0.0.1:8000/updatehouseinfo/'+id+'/',
+                type: 'post',
+                data: datas,
+                dataType: 'json',
+                success: function (res) {
+                    res = JSON.parse(res);
+                    console.log(res);
+                    alert(res.msg);
+                    if (res.status == '200') {
+                        window.location.reload();
+                    }
+                }
+            });
+        }
+    });
+    $('.short-input, .long-input').on('focus', function () {
+        $(this).removeClass('input_error');
+    });
+
+    $('#imgs').focusout(function(){
+        let curFile = document.getElementById('imgs').files;
+        curFile = Array.from(curFile);
+        for(var i=0; i<curFile.length; i++){
+            let fd = new FileReader();
+            fd.readAsDataURL(curFile[i]);
+            fd.onloadend = function(){
+                let i =$("#imgs_url").text()+'-'+this.result;
+                $("#imgs_url").text(i);
+            };
+        }
+    });
+</script>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>精选二手房-注册</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    <script src="{% static 'js/jquery-3.3.1.js' %}"></script>
+    <script src="{% static 'js/register.js' %}"></script>
+    <script src="{% static 'js/some_fuc.js' %}"></script>
+</head>
+<body>
+    <div class="main_header">
+        <div class="main_header_left">
+            <ul>
+                <li><a href="http://127.0.0.1:8000/">房源</a></li>
+                <li><a href="http://127.0.0.1:8000/page/plot.html/">小区</a></li>
+                <li><a href="javascript:" onclick="login_first('http://127.0.0.1:8000/page/publish.html/')">我要卖房</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="main_body">
+        <section>
+			<form action="" id="add_user" >
+				<div class="box">
+					<label for="username" class="username_label">用户名
+                        <input id="username" name="name" maxlength="20" type="text" placeholder="您的用户名和登录名"/>
+					</label>
+					<div class="tips">
+
+					</div>
+				</div>
+				<div class="box">
+					<label for="password1" class="other_label">设置密码
+					<input id="password1" name="password" maxlength="20" type="password" placeholder="建议至少使用两种字符组合"/>
+					</label>
+					<div class="tips">
+
+					</div>
+				</div>
+				<div class="box">
+					<label for="password2" class="other_label">确认密码
+					<input id="password2" maxlength="20" type="password" placeholder="请再次输入密码"/>
+					</label>
+					<div class="tips">
+
+					</div>
+				</div>
+				<div class="box">
+					<label for="tel" class="other_label">
+					<span>手机号</span>
+					<input id="tel" name="tel" maxlength="20" type="text" placeholder="建议使用常用手机"/>
+					</label>
+					<div class="tips">
+
+					</div>
+				</div>
+				<div class="box">
+					<label for="yz" class="short_lable">验证码
+					<input id="yz" class="vercode" maxlength="20" type="text" placeholder="请输入验证码"/>
+					</label>
+                    <span id="code"></span>
+					<div class="tips">
+
+					</div>
+				</div>
+				<div class="arguement">
+					<input type="checkbox" id="xieyi"/>
+					阅读并同意
+					<a href="#">《用户注册协议》</a>
+					<a href="#">《隐私政策》</a>
+					<div class="tips">
+
+					</div>
+				</div>
+				<div class="submit_btn">
+					<button type="submit" id="submit_btn">立 即 注 册</button>
+				</div>
+
+			</form>
+		</section>
+    </div>
+    <div class="main_footer"></div>
+</body>
+
+</html>

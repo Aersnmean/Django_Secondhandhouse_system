@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>优质小区-任您选择</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1222632_symce7ofddh.css">
+</head>
+<body>
+    <div class="main_header">
+        <div class="main_header_left">
+            <ul>
+                <li><a href="http://127.0.0.1:8000/">房源</a></li>
+                <li><a href="http://127.0.0.1:8000/page/plot.html/">小区</a></li>
+                <li><a href="javascript:" onclick="login_first('http://127.0.0.1:8000/page/publish.html/')">我要卖房</a></li>
+            </ul>
+        </div>
+        <div class="main_header_right">
+            <ul>
+                <li><a href="javascript:" onclick="showlog()">登录</a></li>
+                <li><a href="javascript:" onclick="showreg()">注册</a></li>
+                <li class="hide"><a href="javascript:" onclick="login_first('http://127.0.0.1:8000/page/ucenter.html/')">{{request.session.user}}</a></li>
+                <li class="hide"><a href="javascript:" onclick="logout();">退出</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="main_body">
+        <div class="content">
+            <!--  搜索框  -->
+            <div class="search">
+                <div class="search_inner">
+                    <form action="">
+                        <input id="search_text" type="text" placeholder="请输入关键字"><input id="search" type="submit" value="">
+                    </form>
+                </div>
+            </div>
+            <!--小区信息列表-->
+            <div class="sale_left">
+                <ul class="houses" id="items"></ul>
+                <div id="page"></div>
+            </div>
+            <!-- 价格变化曲线 -->
+            <div class="sale_right" id="deal_data_box" onclick="window.open('http://127.0.0.1:8000/page/dealdata.html/')"></div>
+        </div>
+    </div>
+    <div class="main_footer"></div>
+    <div id="login-page" class="login-page hide">
+        <div class="login-title">
+            <div class="login-tab select">登&nbsp&nbsp录</div>
+            <div class="login-tab" onclick="showreg();">注&nbsp&nbsp册</div>
+        </div>
+        <div class="login-register">
+            <div class="login-form">
+                <div class="msg-wrap" id="login-msg"></div>
+                <div class="form">
+                    <form action="javascript:" id="formlogin" method="post" onSubmit="return false;">
+<!--                            用户名-->
+                        <div class="item">
+                            <label for="username">
+                                <div class="input-icon iconfont icon-yonghu"></div>
+                            </label>
+                            <input type="text" name="username" id="username" class="itxt" tabindex="1" autocomplete="off" placeholder="用户名/手机号">
+                        </div>
+<!--                            密码-->
+                        <div id="pwd" class="item" style="visibility: visible">
+                            <label for="nloginpwd">
+                                <div class="input-icon iconfont icon-tubiaozhizuomobanyihuifu-"></div>
+                            </label>
+                            <input type="password" name="password" id="nloginpwd" class="itxt" tabindex="2" autocomplete="off" placeholder="密码">
+                        </div>
+<!--                            验证码-->
+                        <div id="o-authcode" class="item hide">
+                            <label for="authcode">
+                                <div class="input-icon iconfont icon-ecurityCode"></div>
+                            </label>
+                            <input type="text" id="authcode" class="itxt02" name="authcode" tabindex="3" placeholder="请输入验证码">
+                            <input type="text" id="code"  class="verify-code" onclick="createCode()" readonly  unselectable="on">
+                        </div>
+<!--                            登录按钮-->
+                        <div class="item">
+                            <div class="login-btn" id="loginsubmit" onClick="validate();">
+                                登&nbsp;&nbsp;&nbsp;&nbsp;录
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="allb" class="hide" onclick="hidelog()"></div>
+</body>
+<script src="{% static 'js/jquery-3.3.1.js' %}"></script>
+<script src="{% static 'js/echarts.min.js' %}"></script>
+<script src="{% static 'js/some_fuc.js' %}"></script>
+<script src="{% static 'js/xlPaging.js' %}"></script>
+<script src="{% static 'js/checkcode.js' %}"></script>
+<script>
+    getplots();
+    createweekcharts();
+</script>
+</html>

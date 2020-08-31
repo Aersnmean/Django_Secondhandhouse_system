@@ -1,0 +1,364 @@
+.main_header{
+    width: 100%;
+    height: 50px;
+    background-color: #3591d5;
+    font: 14px -apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif;
+}
+.main_header_left{
+    height: 50px;
+    float: left;
+    margin-left: 200px;
+}
+.main_header_right{
+    height: 50px;
+    float: right;
+    margin-right: 200px;
+}
+.main_header_left li, .main_header_right li {
+    height: 50px;
+    float: left;
+    font-size: 20px;
+    line-height: 50px;
+    margin: 0 20px;
+    color: white;
+}
+.main_header_left li a, .main_header_right li a{
+    color: white;
+}
+.main_header_left li a:hover, .main_header_right li a:hover{
+    color: #4e6ef2;
+}
+.main_body{
+    width: 100%;
+}
+.content{
+    width: 65%;
+    margin: auto;
+    font-size: 0;
+    font-family: "Microsoft YaHei","微软雅黑",Tahoma,Arial,simhei,Helvetica,sans-serif;
+}
+.search{
+    width: 815px;
+    height: 150px;
+    float: right;
+}
+.search_inner{
+    width: 420px;
+    height: 50px;
+    padding: 50px 10px;
+    float: left;
+}
+.search_inner input[type=text]{
+    width: 354px;
+    height: 38px;
+    vertical-align: -1px;
+    border: 3px solid rgba(77,165,222,0.7);
+    border-right: none;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    color: #999;
+    text-indent: 0.5em;
+    font-size: 14px;
+}
+.search_inner input[type=text]:focus{
+    outline: none;
+}
+.search_inner input[type=submit]{
+    width: 63px;
+    height: 44px;
+    vertical-align: -18px;
+    border: 3px solid rgba(77,165,222,0.6);
+    border-left: 2px solid rgba(77,165,222,0.6);
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    background: url("../images/search.png") no-repeat;
+    cursor: pointer;
+}
+.items_list{
+    width: 100%;
+    font-size: 13px;
+    padding-top: 150px;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    border: 1px solid #d8d8d8;
+}
+.items{
+    width: 95%;
+    height: 35px;
+    padding: 4px 30px;
+    border-bottom: 1px dashed #d8d8d8;
+}
+.item_title{
+    display: inline-block;
+    color: #999;
+    margin-right: 15px;
+    vertical-align: top;
+    line-height: 35px;
+}
+.items .item{
+    line-height: 35px;
+    margin-right: 30px;
+    cursor: default;
+}
+.items .item:hover{
+    color: #e54b00;
+    text-decoration: underline;
+}
+.select_item{
+    color: #e54b00;
+    font-weight: bold;
+}
+.main_title {
+    margin: 30px;
+    font-size: 26px;
+    font-weight: 500;
+}
+.sale_left{
+    display: inline-block;
+    min-height: 737px;
+    width: 80%;
+}
+.house_item{
+    padding: 30px 20px 20px 230px;
+    color: #666;
+    border-bottom: 1px dashed #e6e6e6;
+    position: relative;
+    vertical-align: top;
+    z-index: 0;
+ }
+.house_item:hover{
+    background-color: rgba(102, 102, 102, 0.5);
+}
+.item_img{
+    float: left;
+    margin-left: -200px;
+    width: 180px;
+    height: 135px;
+    position: relative;
+    z-index: 2;
+}
+.house_detail{
+    min-height: 135px;
+}
+.house_title{
+    overflow: hidden;
+    white-space: nowrap;
+}
+.house_title a{
+    font-size: 20px;
+    color: #333333;
+    font-weight: 600;
+}
+.house_title a:hover{
+    color: #e54b00;
+}
+.house_title a:visited{
+    color: #666666;
+}
+.details_item{
+    margin-top: 17px;
+    font-size: 15px;
+    color: #0b0f12;
+}
+.details_item span{
+    margin-right: 10px;
+}
+.pro_price{
+    position: absolute;
+    top: 60px;
+    right: 36px;
+    width: 112px;
+    font-size: 12px;
+    text-align: right;
+    white-space: nowrap;
+}
+.price_det{
+    color: #e54b00;
+    letter-spacing: 1px;
+    font-size: 16px;
+}
+.price_det strong{
+    font-size: 30px;
+}
+.sale_right{
+    display: inline-block;
+    width: 20%;
+    min-height: 500px;
+    font-size: 20px;
+    vertical-align:top;
+}
+.main_footer{
+    width: 100%;
+    height: 150px;
+    background-color: #3591d5;
+}
+
+
+#page{
+     margin: 20px auto;
+     color: #666;
+     display: block;
+     text-align: center;
+}
+#page li {
+     display: inline-block;
+     min-width: 30px;
+     height: 28px;
+     cursor: pointer;
+     color: #666;
+     font-size: 13px;
+     line-height: 28px;
+     background-color: #f9f9f9;
+     border: 1px solid #dce0e0;
+     text-align: center;
+     margin: 0 4px;
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     appearance: none;
+}
+.xl-nextPage,.xl-prevPage {
+     width: 60px;
+     color: #0073A9;
+     height: 28px;
+}
+/*失效状态样式*/
+#page li.xl-disabled {
+ opacity: .5;
+ cursor: no-drop;
+}
+/*当前页码显示状态*/
+#page li.xl-active {
+ background-color: #0073A9;
+ border-color: #0073A9;
+ color: #FFF
+}
+
+
+
+/*登陆页面相关样式*/
+.login-page{
+	width:400px;
+	margin:0 auto;
+	border: 1px solid rgb(52,135,255);
+	border-radius: 10px;
+	position: fixed;
+	top: 30%;
+	background-color: white;
+	left: 40%;
+	overflow: hidden;
+	z-index: 90;
+}
+.login-title{
+    font-size: 0;
+}
+.login-title .login-tab{
+    cursor: pointer;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 700;
+    width: 50%;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+.login-title .select{
+    color: #fcfcfc;
+    background-color: rgb(52,135,255);
+}
+.login-form{
+    margin: auto;
+    width: 90%;
+}
+.login-form .msg-wrap{
+    line-height: 30px;
+    height: 30px;
+    color: red;
+    font-size: 14px;
+    font-family: 黑体;
+    text-align: center;
+}
+.login-register .form .item{
+    text-align: center;
+}
+.login-register .form .item label{
+    display: inline-block;
+    color: #3487ff;
+    vertical-align: middle;
+    height: 40px;
+}
+.login-register .form .item label .input-icon{
+    font-size: 25px;
+}
+.login-register .form .item .itxt{
+    border: 1px solid #bdbdbd;
+    border-radius: 4px;
+	height: 38px;
+	width: 280px;
+    margin-bottom: 15px;
+    padding: 0 10px;
+    display: inline-block;
+}
+.login-register .form .itxt02{
+    border: 1px solid #bdbdbd;
+    border-radius: 4px;
+	padding:10px;
+	width:180px;
+    vertical-align:middle;
+}
+.login-register .form .verify-code{/*验证码*/
+	cursor:pointer;
+	width:96px;
+	height:38px;
+	vertical-align:middle;
+    border: 0;
+	text-align:center;
+    background-color: black;
+    color: #a79fe9;
+    font-size: 20px;
+    letter-spacing: 8px;
+    outline: none;
+}
+.login-register .form .login-btn{
+    border: 1px solid #bdbdbd;
+    border-radius: 4px;
+	height: 38px;
+    line-height: 38px;
+	width: 200px;
+    margin-bottom: 15px;
+    padding: 0 10px;
+    display: inline-block;
+    margin-top: 15px;
+    background-color: #3487ff;
+    color: white;
+    cursor: pointer;
+}
+#allb{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 80;
+	top: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0.6);
+}
+.buttons{
+    margin-right: 20px;
+    cursor: pointer;
+    width: 40px;
+    height: 25px;
+    line-height: 25px;
+    padding: 0;
+    background: 0 0;
+    background-color: #3591d5;
+    border-radius: 5px;
+    font-size: 12px;
+    color: #fff;
+    box-shadow: none;
+    font-weight: 400;
+    border: none;
+    outline: 0;
+    z-index: 50;
+}
+.buttons_red{
+    background-color: #e93854;
+}

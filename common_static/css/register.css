@@ -1,0 +1,96 @@
+form{
+	width: 400px;
+	margin: 100px auto 147px;
+	/*margin-top: 100px;*/
+}
+.box{
+    margin-bottom: 32px;
+    background-color: white;
+}
+.box label{
+	display: inline-block;
+    color: #3487ff;
+    vertical-align: middle;
+    line-height: 40px;
+    height: 40px;
+    width: 400px;
+    letter-spacing: 8px;
+}
+.box input{
+    float: right;
+	border: 1px solid #bdbdbd;
+    border-radius: 4px;
+	height: 38px;
+	width: 280px;
+    margin-bottom: 15px;
+    padding: 0 10px;
+    display: inline-block;
+}
+.box .tips{
+	position: absolute;
+    margin-top: 5px;
+    font-size: 10px;
+    color: #ccc;
+}
+/*用户名*/
+.box .username_label{
+	letter-spacing: 10px;
+}
+/*密码，确认密码，*/
+.box .other_label{
+	letter-spacing: 2px;
+}
+.box .short_lable{
+    width: 300px;
+}
+.box .vercode{
+    width: 180px;
+    border-radius: 4px 0 0 4px;
+}
+/*手机号*/
+.box span{
+    display: inline-block;
+    width: 77px;
+    height: 52px;
+}
+/*验证码*/
+#code{
+	cursor:pointer;
+	width:100px;
+    margin-left: -4px;
+	height:40px;
+    line-height: 40px;
+	vertical-align:middle;
+    border: 0;
+	text-align:center;
+    background-color: black;
+    color: #a79fe9;
+    font-size: 20px;
+    letter-spacing: 8px;
+    display: inline-block;
+    outline: none;
+    border-radius: 0 4px 4px 0;
+}
+/*协议*/
+.arguement{
+	margin-bottom: 58px;
+}
+.arguement input{
+	vertical-align: middle;
+}
+.arguement a{
+	color: #38f;
+    text-decoration: none;
+    font-size: 12px;
+}
+/*提交按钮*/
+.submit_btn button{
+	width: 100%;
+    height: 54px;
+    color: #fff;
+    background: rgb(52,135,255);
+    border: 0;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: "Microsoft YaHei","Hiragino Sans GB";
+}
